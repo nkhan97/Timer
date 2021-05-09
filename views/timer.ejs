@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Timer</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+
+  <p id="countdown"> <%= minutes %> : <%= seconds %></p>
+
+  <div class="button-Container">
+    <button class="timer-Buttons" type="submit" id="stop">Stop</button>
+    <button class="timer-Buttons" type="submit" id="start">Start</button>
+    <button class="timer-Buttons" type="submit" id="reset">Reset</button>
+    <form action="timer-set">
+      <button class="timer-Buttons" type="submit" id="edit">Edit</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var reset = document.getElementById("reset");
+    var countdown = document.getElementById("countdown");
+
+    let time = ( <%= minutes %> * 60) + <%= seconds %> ;
+
+    let interval = 0;
+
+    function timer() {
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+
+      countdown.innerHTML = `${minutes} : ${seconds}`;
+      time--;
+
+      if(minutes == 0 & seconds == 0){
+        clearInterval(interval);
+        interval = setInterval(null);
+        countdown.innerHTML = "Time's Up!";
+      }
+    }
+
+
+    start.addEventListener('click', function() {
+      if(!interval){
+        clearInterval(interval);
+        interval = setInterval(timer, 1000);
+      }
+    })
+
+    function stopTimer() {
+      clearInterval(interval);
+      interval = 0;
+    }
+
+    stop.addEventListener('click', stopTimer);
+
+
+    reset.addEventListener('click', function() {
+      stopTimer();
+      countdown.innerHTML = "<%= minutes %> : <%= seconds %>";
+      time = ( <%= minutes %> * 60) + <%= seconds %> ;
+
+    }) 
+  </script> 
+</body> 
+</html>

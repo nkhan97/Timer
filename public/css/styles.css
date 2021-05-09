@@ -1,0 +1,120 @@
+/* all pages */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+body {
+  background-color: black;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+
+/* Timer-set page */
+.timer-text { 
+  color: red;
+  font-family: sans-serif;
+  display: inline;
+}
+
+.heading-timer {
+  font-size: 2.5rem;
+} 
+
+.timerSetContent {
+  line-height: 75px;
+  margin-top: -150px;
+  position: absolute;
+  text-align: center;
+  size: 100%;
+  padding: 20px;
+  top: 50%;
+} 
+
+
+/* Timer Submit Button */
+.timerSetBtn {
+  border: none;
+  background: #404040;
+  color: #ffffff;
+  font-weight: 50px;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: all 0.3s ease 0s;
+  margin-left: 10px;
+}
+
+.timerSetBtn:hover {
+letter-spacing: 3px;
+background: none;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.3s ease 0s;
+}
+
+
+/* Timer page */
+#countdown {
+  font-size: 100px;
+  font-family: sans-serif;
+  color: red;
+  line-height: 200px;
+  margin-top: -150px;
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  width: 100%;
+}
+
+.button-Container {
+  margin-top: -50px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+
+/* Timer Buttons */
+.timer-Buttons {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ed3330;
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  margin-top: 5px;
+}
+
+.timer-Buttons:hover {
+  background: blue;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+
+
+/* Media Query */
+@media (max-width: 300px) {
+  .heading-timer {
+    font-size: 2rem;
+  } 
+}
+
+@media (max-width: 350px) {
+  #countdown {
+    font-size: 75px;
+  } 
+}
